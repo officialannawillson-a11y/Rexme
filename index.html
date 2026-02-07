@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{margin:0;font-family:Arial,sans-serif}
+
+/* ================= FAST PAGE ================= */
+#fast{
+  background:#f2f2f2;
+  min-height:100vh;
+  text-align:center;
+}
+.container{
+  max-width:420px;
+  margin:auto;
+  padding-bottom:90px;
+}
+.main img{
+  width:100%;
+  display:block;
+}
+.thumbs{
+  display:flex;
+}
+.thumbs img{
+  width:33.33%;
+  display:block;
+}
+.go{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  background:#22c55e;
+  color:#fff;
+  padding:15px;
+  font-size:18px;
+  font-weight:bold;
+  text-decoration:none;
+  z-index:10;
+}
+.tap{
+  position:fixed;
+  inset:0;
+  z-index:5;
+}
+
+/* ================= VIDEO PAGE ================= */
+#videos{
+  display:none;
+  background:#000;
+  color:#fff;
+}
+.page{
+  max-width:420px;
+  margin:auto;
+}
+.video-box{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.video-wrap{
+  position:relative;
+  height:70vh;
+  border-radius:14px;
+  overflow:hidden;
+}
+video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#000;
+}
+.overlay{
+  position:absolute;
+  inset:0;
+  z-index:5;
+}
+.actions{
+  margin-top:12px;
+  display:flex;
+  gap:10px;
+}
+.btn{
+  flex:1;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+  font-weight:bold;
+  text-decoration:none;
+}
+.download{background:#e74c3c;color:#fff}
+.next{background:#2ecc71;color:#000}
+</style>
+</head>
+
+<body>
+
+<!-- ================= FAST PAGE ================= -->
+<section id="fast">
+  <a class="tap" onclick="openVideos()"></a>
+
+  <div class="container">
+    <div class="main">
+      <img src="MAIN_IMAGE_URL">
+    </div>
+    <div class="thumbs">
+      <img src="IMG1_URL">
+      <img src="IMG2_URL">
+      <img src="IMG3_URL">
+    </div>
+  </div>
+
+  <a class="go" onclick="openVideos()">Go to site</a>
+</section>
+
+<!-- ================= VIDEO PAGE ================= -->
+<section id="videos">
+<div class="page">
+
+<!-- VIDEO TEMPLATE (1–10 SAME LOGIC) -->
+
+<div class="video-box" id="v1">
+  <div class="video-wrap">
+    <video id="vid1" autoplay muted playsinline controls>
+      <source src="VIDEO_1.mp4">
+    </video>
+    <div class="overlay" onclick="openAd(1,event)"></div>
+  </div>
+  <div class="actions">
+    <a class="btn download" onclick="openAd(1,event)">Download</a>
+    <a class="btn next" href="#v2">Next</a>
+  </div>
+</div>
+
+<div class="video-box" id="v2">
+  <div class="video-wrap">
+    <video id="vid2" controls playsinline>
+      <source src="VIDEO_2.mp4">
+    </video>
+    <div class="overlay" onclick="openAd(2,event)"></div>
+  </div>
+  <div class="actions">
+    <a class="btn download" onclick="openAd(2,event)">Download</a>
+    <a class="btn next" href="#v3">Next</a>
+  </div>
+</div>
+
+<div class="video-box" id="v3">
+  <div class="video-wrap">
+    <video id="vid3" controls playsinline>
+      <source src="VIDEO_3.mp4">
+    </video>
+    <div class="overlay" onclick="openAd(3,event)"></div>
+  </div>
+  <div class="actions">
+    <a class="btn download" onclick="openAd(3,event)">Download</a>
+    <a class="btn next" href="#v4">Next</a>
+  </div>
+</div>
+
+<div class="video-box" id="v4">
+  <div class="video-wrap">
+    <video id="vid4" controls playsinline>
+      <source src="VIDEO_4.mp4">
+    </video>
+    <div class="overlay" onclick="openAd(4,event)"></div>
+  </div>
+  <div class="actions">
+    <a class="btn download" onclick="openAd(4,event)">Download</a>
+    <a class="btn next" href="#v5">Next</a>
+  </div>
+</div>
+
+<div class="video-box" id="v5">
+  <div class="video-wrap">
+    <video id="vid5" controls playsinline>
+      <source src="VIDEO_5.mp4">
+    </video>
+    <div class="overlay" onclick="openAd(5,event)"></div>
+  </div>
+  <div class="actions">
+    <a class="btn download" onclick="openAd(5,event)">Download</a>
+    <a class="btn next" href="#v6">Next</a>
+  </div>
+</div>
+
+<div class="video-box" id="v6">
+  <div class="video-wrap">
+    <video id="vid6" controls playsinline>
+      <source src="VIDEO_6.mp4">
+    </video>
+    <div class="overlay" onclick="openAd(6,event)"></div>
+  </div>
+  <div class="actions">
+    <a class="btn download" onclick="openAd(6,event)">Download</a>
+    <a class="btn next" href="#v7">Next</a>
+  </div>
+</div>
+
+<div class="video-box" id="v7">
+  <div class="video-wrap">
+    <video id="vid7" controls playsinline>
+      <source src="VIDEO_7.mp4">
+    </video>
+    <div class="overlay" onclick="openAd(7,event)"></div>
+  </div>
+  <div class="actions">
+    <a class="btn download" onclick="openAd(7,event)">Download</a>
+    <a class="btn next" href="#v8">Next</a>
+  </div>
+</div>
+
+<div class="video-box" id="v8">
+  <div class="video-wrap">
+    <video id="vid8" controls playsinline>
+      <source src="VIDEO_8.mp4">
+    </video>
+    <div class="overlay" onclick="openAd(8,event)"></div>
+  </div>
+  <div class="actions">
+    <a class="btn download" onclick="openAd(8,event)">Download</a>
+    <a class="btn next" href="#v9">Next</a>
+  </div>
+</div>
+
+<div class="video-box" id="v9">
+  <div class="video-wrap">
+    <video id="vid9" controls playsinline>
+      <source src="VIDEO_9.mp4">
+    </video>
+    <div class="overlay" onclick="openAd(9,event)"></div>
+  </div>
+  <div class="actions">
+    <a class="btn download" onclick="openAd(9,event)">Download</a>
+    <a class="btn next" href="#v10">Next</a>
+  </div>
+</div>
+
+<div class="video-box" id="v10">
+  <div class="video-wrap">
+    <video id="vid10" controls playsinline>
+      <source src="VIDEO_10.mp4">
+    </video>
+    <div class="overlay" onclick="openAd(10,event)"></div>
+  </div>
+  <div class="actions">
+    <a class="btn download" onclick="openAd(10,event)">Download</a>
+    <a class="btn next" href="#v1">Restart</a>
+  </div>
+</div>
+
+</div>
+</section>
+
+<script>
+function openVideos(){
+  document.getElementById("fast").style.display="none";
+  document.getElementById("videos").style.display="block";
+  window.scrollTo(0,0);
+}
+
+const ADS={
+1:["AD_LINK_1A","AD_LINK_1B"],
+2:["AD_LINK_2A","AD_LINK_2B"],
+3:["AD_LINK_3A","AD_LINK_3B"],
+4:["AD_LINK_4A","AD_LINK_4B"],
+5:["AD_LINK_5A","AD_LINK_5B"],
+6:["AD_LINK_6A","AD_LINK_6B"],
+7:["AD_LINK_7A","AD_LINK_7B"],
+8:["AD_LINK_8A","AD_LINK_8B"],
+9:["AD_LINK_9A","AD_LINK_9B"],
+10:["AD_LINK_10A","AD_LINK_10B"]
+};
+
+const clicks={};
+
+function openAd(n,e){
+  if(!clicks[n]) clicks[n]=0;
+  if(clicks[n]<2){
+    window.open(ADS[n][clicks[n]],"_blank");
+    clicks[n]++;
+    e.preventDefault();
+    return;
+  }
+  const o=document.querySelector("#v"+n+" .overlay");
+  if(o) o.remove();
+  const v=document.getElementById("vid"+n);
+  v.muted=false;
+  v.play();
+}
+</script>
+
+</body>
+</html>
